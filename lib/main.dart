@@ -5,7 +5,9 @@ import 'package:flutter/services.dart';
 var lightScheme = ColorScheme.fromSeed(seedColor: Colors.lightBlue);
 var darkScheme = ColorScheme.fromSeed(seedColor: Colors.deepPurple);
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(const MainApp());
 }
 
@@ -14,9 +16,6 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // WidgetsFlutterBinding.ensureInitialized();
-    // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
-    //     .then((fn) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       darkTheme: ThemeData.dark().copyWith(
@@ -60,5 +59,4 @@ class MainApp extends StatelessWidget {
       home: MealsScreen(),
     );
   }
-  //  });
 }
